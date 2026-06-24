@@ -1,0 +1,9 @@
+/bin/
+/.keys/
+.env
+*.pem
+
+# Go build/test artifacts
+*.out
+*.test
+coverage.*
