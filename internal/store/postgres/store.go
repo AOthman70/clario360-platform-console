@@ -253,14 +253,13 @@ func (s *OverviewStore) Snapshot(ctx context.Context) (overview.Snapshot, error)
 			return overview.Snapshot{}, err
 		}
 		snap.Services = append(snap.Services, sh)
-		if sh.Status == "healthy" {
-			snap.ServicesUp++
-		}
-		if sh.Status == "down" {
-			snap.CriticalCount++
-		}
 	}
-	return snap, rows.Err()
+	if err := rows.Err(); err != nil {
+		return overview.Snapshot{}, err
+	}
+
+	snap.ServicesUp, snap.CriticalCount = overview.CountStatuses(snap.Services)
+	return snap, nil
 }
 
 // --- Audit sink -----------------------------------------------------------
