@@ -23,7 +23,7 @@ vet:
 # Apply migrations with the Flyway CLI (adjust URL/creds as needed).
 migrate:
 	flyway -url=jdbc:postgresql://localhost:5432/clario360 \
-	       -user=postgres -locations=filesystem:./migrations migrate
+	       -user=postgres -password=postgres -locations=filesystem:./migrations migrate
 
 # Generate a dev RSA keypair for local JWT verification.
 keys:
