@@ -83,8 +83,8 @@ INSERT INTO service_health (name, status, version) VALUES
     ('data-service',    'healthy', '1.0.0'),
     ('acta-service',    'healthy', '1.0.0'),
     ('watheeq-service', 'healthy', '1.0.0'),
-    ('visus-service',   'healthy', '1.0.0')
-    ('dr-service',   'healthy', '1.0.0')
+    ('visus-service',   'healthy', '1.0.0'),
+    ('dr-service',      'healthy', '1.0.0')
 ON CONFLICT (name) DO NOTHING;
 
 -- Seed the suite catalog (Slides 5, 14) -------------------------------------
